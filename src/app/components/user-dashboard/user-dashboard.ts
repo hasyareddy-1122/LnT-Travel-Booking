@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './user-dashboard.html',
   styleUrl: './user-dashboard.css'
 })
+
 export class UserDashboard implements OnInit {
   private travelService = inject(TravelService);
   myBookings: any[] = [];
