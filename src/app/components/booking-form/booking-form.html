@@ -1,0 +1,40 @@
+<form (ngSubmit)="onSubmit()" class="booking-form">
+    <h3 class="form-title">Complete Your Booking</h3>
+
+    <div class="form-group">
+        <label for="userName">Full Name</label>
+        <input id="userName" type="text" [(ngModel)]="booking.userName" name="userName" placeholder="Enter your name"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" type="email" [(ngModel)]="booking.email" name="email" placeholder="email@example.com"
+            required>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="date">Travel Date</label>
+            <input id="date" type="date" [(ngModel)]="booking.date" name="date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nights">Number of Nights</label>
+            <input id="nights" type="number" [(ngModel)]="booking.nights" name="nights" min="1" required>
+        </div>
+    </div>
+
+    <div class="cost-summary">
+        <div class="summary-row">
+            <span>Price per night:</span>
+            <strong>${{ pricePerNight }}</strong>
+        </div>
+        <div class="summary-row total">
+            <span>Total Estimate:</span>
+            <span class="price-amount">${{ totalCost }}</span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-submit">Confirm Booking for {{ destinationName }}</button>
+</form>

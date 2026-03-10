@@ -1,0 +1,41 @@
+<div class="summary-banner">
+    <h3>Travel Investment Summary</h3>
+    <p>Total Spent: <strong>${{ totalSpend }}</strong></p>
+    <p>Trips Planned: <strong>{{ myBookings.length }}</strong></p>
+</div>
+
+<div class="container">
+    <h2 class="section-title">My Bookings</h2>
+
+    @if (myBookings.length > 0) {
+    <div class="booking-grid">
+        @for (b of myBookings; track b.date) {
+        <div class="booking-card">
+            <div class="booking-info">
+                <div class="booking-header">
+                    <h3>Trip to: {{ b.destination }}</h3>
+                    <span class="status-badge">Confirmed</span>
+                </div>
+
+                <div class="details-list">
+                    <p><strong>Traveler:</strong> {{ b.userName }}</p>
+                    <p><strong>Date:</strong> {{ b.date }}</p>
+                    <p><strong>Stay:</strong> {{ b.nights }} nights</p>
+                </div>
+
+                <div class="payment-details">
+                    <hr class="dashed-line">
+                    <p class="total-price">
+                        Total Amount Paid: <span>${{ b.totalCost }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    } @else {
+    <div class="empty-state">
+        <p>No bookings found. <a routerLink="/destinations">Book a trip now!</a></p>
+    </div>
+    }
+</div>

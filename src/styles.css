@@ -1,1 +1,225 @@
-/* You can add global styles to this file, and also import other style files */
+/* 1. Global Variables & Reset */
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --success: #27ae60;
+    --bg: #f8f9fa;
+    --text: #333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* 2. Navbar Styling */
+.navbar {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary);
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a.active {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+}
+
+/* 3. Destination Grid & Cards */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.destination-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+}
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.destination-card:hover .image-container img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+/* 4. Details Page Layout (Two Columns) */
+.package-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (max-width: 850px) {
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 4. Details Page Layout (Two Columns) */
+.package-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Fix for the large image issue */
+.detail-image-container {
+    width: 100%;
+    height: 450px;
+    /* Fixed height for the detail page image */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.detail-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image fills the space without stretching */
+    display: block;
+}
+
+@media (max-width: 850px) {
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-image-container {
+        height: 300px;
+        /* Smaller height for mobile tablets */
+    }
+}
+/* 5. Forms & Inputs */
+.booking-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* 6. Buttons */
+.btn-details,
+button[type="submit"] {
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: filter 0.2s;
+}
+
+.btn-details {
+    background: var(--accent);
+    width: 100%;
+}
+
+button[type="submit"] {
+    background: var(--success);
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    filter: brightness(90%);
+}
+
+/* 7. My Bookings Dashboard Cards */
+.booking-card {
+    background: white;
+    border-left: 5px solid var(--accent);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 100%;
+}
+
+.payment-summary {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+}
+
+.price-row.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--success);
+    display: flex;
+    justify-content: space-between;
+}

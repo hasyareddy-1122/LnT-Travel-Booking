@@ -1,0 +1,20 @@
+<div class="container">
+    <h2 class="section-title">Explore Destinations</h2>
+
+    <div class="destination-grid">
+        @for (pkg of travelPackages; track pkg.id) {
+        <div class="destination-card">
+            <div class="image-container">
+                <img [src]="pkg.imageUrl" [alt]="pkg.name">
+            </div>
+            <div class="card-content">
+                <h3>{{ pkg.name }}</h3>
+                <p>{{ pkg.description }}</p>
+                <button class="btn-details" [routerLink]="['/package', pkg.id]">
+                    View Details
+                </button>
+            </div>
+        </div>
+        }
+    </div>
+</div>

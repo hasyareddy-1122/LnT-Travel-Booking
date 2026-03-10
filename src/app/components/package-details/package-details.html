@@ -1,0 +1,27 @@
+<div class="container">
+    @if (package) {
+    <div class="package-grid">
+
+        <section class="details-column">
+            <div class="detail-image-container">
+                <img [src]="package.imageUrl" [alt]="package.name">
+            </div>
+
+            <div class="details-text">
+                <h1>{{ package.name }}, {{ package.country }}</h1>
+                <p>{{ package.description }}</p>
+                <h3>Price: ${{ package.pricePerNight }} / night</h3>
+            </div>
+        </section>
+
+        <section class="booking-column">
+            <div class="booking-section">
+                <h2>Reserve Your Spot</h2>
+                <app-booking-form [destinationName]="package.name" [pricePerNight]="package.pricePerNight">
+                </app-booking-form>
+            </div>
+        </section>
+
+    </div>
+    }
+</div>
